@@ -31,9 +31,9 @@
 
 - Web browser (Google Chrome, Mozilla Firefox, etc.)
 
-# Gif
+# Video
 
-<img src="/spotify.gif" max-width="100%" height="auto" >
+<video src="https://github.com/AlisanGuler/Spotify-Clone/assets/143933635/e7b3301c-ec98-4197-a793-8ba24c9208e2"></video>
 
 
 # Contributing
