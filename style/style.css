@@ -1,0 +1,395 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  background: black;
+  color: white;
+  overflow: hidden;
+  font-family: "poppins";
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px 15px;
+}
+aside #logo {
+  width: 40px;
+}
+aside #text-logo {
+  width: 130px;
+}
+aside nav {
+  display: flex;
+  flex-direction: column;
+}
+aside nav a {
+  padding: 20px 10px;
+  display: flex;
+  gap: 5px;
+  border-radius: 10px;
+  white-space: nowrap;
+  transition: all 0.3s;
+}
+aside nav a:hover {
+  background: rgb(32, 32, 32);
+}
+@media (max-width: 870px) {
+  aside nav a span {
+    display: none;
+  }
+  aside nav a i {
+    font-size: 20px;
+  }
+}
+
+main {
+  width: 100%;
+}
+
+main header {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 10px;
+}
+@media (max-width: 870px) {
+  main header {
+    justify-content: center;
+  }
+}
+main header form {
+  display: flex;
+}
+main header form input {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+main header form button {
+  background: #1db954;
+  height: 100%;
+  padding: 0 25px;
+  border: none;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+main header ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+@media (max-width: 870px) {
+  main header ul {
+    display: none;
+  }
+}
+main header li {
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 300ms;
+}
+main header li:hover {
+  background: rgb(60, 60, 60);
+}
+
+main .songs {
+  background: rgb(42, 42, 42);
+  height: 100%;
+}
+main .songs #title {
+  text-transform: capitalize;
+  padding: 20px;
+}
+main .songs #list {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  height: 80vh;
+  overflow: scroll;
+}
+main .songs #list::-webkit-scrollbar {
+  background-color: black;
+  width: 8px;
+}
+main .songs #list::-webkit-scrollbar-thumb {
+  background-color: green;
+  border-radius: 4px;
+}
+main .songs #list .card {
+  width: 200px;
+  padding: 15px;
+  background: #181818;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 20rem;
+}
+main .songs #list .card figure {
+  position: relative;
+}
+main .songs #list .card figure img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+main .songs #list .card figure #play {
+  position: absolute;
+  right: 10px;
+  bottom: -20px;
+  background: #1db954;
+  opacity: 0;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  font-size: 23px;
+  transition: all 0.3s;
+}
+main .songs #list .card figure #play:hover {
+  background: #0e9c3f;
+  scale: 0.9;
+}
+main .songs #list .card:hover #play {
+  opacity: 1;
+  bottom: 20px;
+}
+main .songs #list .card h4 {
+  margin-bottom: 6px;
+}
+
+@media (max-width: 870px) {
+  #logo {
+    display: block;
+  }
+  #text-logo {
+    display: none;
+  }
+  main .songs #list {
+    justify-content: center;
+  }
+}
+@media (min-width: 870px) {
+  #logo {
+    display: none;
+  }
+}
+.play-area {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  background: linear-gradient(240deg, #080000 0%, #5a0606 52%, #d40707 90%);
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  padding: 10px 40px;
+}
+@media (max-width: 768px) {
+  .play-area {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
+.play-area > div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.play-area > div img {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+
+.animate {
+  animation: turn 10s linear infinite;
+}
+
+@keyframes turn {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.container {
+  width: 175px;
+  height: 175px;
+  background-color: #ABC4AA;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 5px 5px 0 0 #675D50;
+}
+
+.plate {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.plate .black,
+.plate .white,
+.plate .center,
+.plate .border {
+  border-radius: 100%;
+}
+
+.container,
+.plate .black,
+.plate .white,
+.plate .border {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.plate .black {
+  width: 150px;
+  height: 150px;
+  background-color: #675D50;
+  animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+.plate .white {
+  width: 70px;
+  height: 70px;
+  background-color: #F3DEBA;
+}
+
+.plate .center {
+  width: 20px;
+  height: 20px;
+  background-color: #675D50;
+}
+
+.plate .border {
+  width: 111px;
+  height: 111px;
+  border-top: 3px solid #F3DEBA;
+  border-bottom: 3px solid #F3DEBA;
+  border-left: 3px solid #675D50;
+  border-right: 3px solid #675D50;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  rotate: -45deg;
+}
+
+.player .circ {
+  width: 25px;
+  height: 25px;
+  background-color: #F3DEBA;
+  border-radius: 100%;
+  z-index: 1;
+}
+
+.player .rect {
+  width: 10px;
+  height: 55px;
+  background-color: #F3DEBA;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 5px;
+}
+
+.container2 {
+  margin-right: 50px;
+}
+@media (max-width: 768px) {
+  .container2 {
+    margin-left: 100px;
+  }
+}
+.container2 .toggle {
+  background-color: #fff;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.1);
+  line-height: 1;
+}
+.container2 .input {
+  display: none;
+}
+.container2 .icon {
+  grid-column: 1/1;
+  grid-row: 1/1;
+  transition: transform 500ms;
+}
+.container2 .icon--moon {
+  transition-delay: 200ms;
+  color: black;
+}
+.container2 .icon--sun {
+  transform: scale(0);
+  color: black;
+}
+.container2 #switch:checked + .icon--moon {
+  transform: rotate(360deg) scale(0);
+}
+.container2 #switch:checked ~ .icon--sun {
+  transition-delay: 200ms;
+  transform: scale(1) rotate(360deg);
+}
+
+.light {
+  background: white;
+  color: black;
+}
+.light .songs {
+  background: rgb(230, 222, 222);
+}
+.light .card {
+  background: white !important;
+  color: black;
+}
+.light form input {
+  border: 1px solid black;
+  box-shadow: 0 0 10px rgb(124, 122, 122);
+}
+.light nav a {
+  color: black;
+}
+.light nav a:hover {
+  background: grey;
+}/*# sourceMappingURL=style.css.map */

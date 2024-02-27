@@ -1,0 +1,462 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    background: black;
+    color: white;
+    overflow: hidden;
+    font-family: 'poppins';
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px 15px;
+
+    #logo {
+        width: 40px;
+    }
+
+    #text-logo {
+        width: 130px;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            padding: 20px 10px;
+            display: flex;
+            gap: 5px;
+            border-radius: 10px;
+            white-space: nowrap;
+            transition: all .3s;
+
+            &:hover {
+                background: rgb(32, 32, 32);
+            }
+
+            @media (max-width: 870px) {
+                span {
+                    display: none;
+                }
+
+                i {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}
+
+main {
+    width: 100%;
+}
+
+
+
+// header alanı
+main header {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 10px;
+
+    @media (max-width: 870px) {
+        justify-content: center;
+    }
+
+    form {
+        display: flex;
+
+        input {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+
+        button {
+            background: #1db954;
+            height: 100%;
+            padding: 0 25px;
+            border: none;
+            color: white;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        list-style: none;
+
+        @media (max-width: 870px) {
+            display: none;
+        }
+    }
+
+    li {
+        padding: 5px 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 300ms;
+
+        &:hover {
+            background: rgb(60, 60, 60);
+        }
+    }
+}
+
+main .songs {
+    background: rgb(42, 42, 42);
+    height: 100%;
+
+    #title {
+        text-transform: capitalize;
+        padding: 20px;
+    }
+
+    #list {
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 40px;
+        height: 80vh;
+        overflow: scroll;
+
+        &::-webkit-scrollbar {
+            background-color: black;
+            width: 8px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: green;
+            border-radius: 4px;
+        }
+
+        .card {
+            width: 200px;
+            padding: 15px;
+            background: #181818;
+            border-radius: 6px;
+            cursor: pointer;
+            height: 20rem;
+
+            figure {
+                position: relative;
+
+                img {
+                    width: 100%;
+                    border-radius: 6px;
+                    margin-bottom: 10px;
+                }
+
+                #play {
+                    position: absolute;
+                    right: 10px;
+                    bottom: -20px;
+                    background: #1db954;
+                    opacity: 0;
+                    border-radius: 50%;
+                    width: 40px;
+                    height: 40px;
+                    display: grid;
+                    place-items: center;
+                    font-size: 23px;
+                    transition: all .3s;
+
+                    &:hover {
+                        background: #0e9c3f;
+                        scale: .9;
+                    }
+                }
+            }
+
+            &:hover #play {
+                opacity: 1;
+                bottom: 20px;
+            }
+
+            h4 {
+                margin-bottom: 6px;
+            }
+        }
+
+    }
+}
+
+@media (max-width: 870px) {
+    #logo {
+        display: block;
+    }
+
+    #text-logo {
+        display: none;
+    }
+
+    main .songs {
+
+
+        #list {
+            justify-content: center;
+        }
+
+    }
+}
+
+@media (min-width: 870px) {
+    #logo {
+        display: none;
+    }
+
+}
+
+//OYnatma Alanı
+.play-area {
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    background: linear-gradient(240deg, #080000 0%, #5a0606 52%, #d40707 90%, );
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    padding: 10px 40px;
+
+    @media (max-width: 768px) {
+        font-size: 13px;
+        padding: 10px;
+    }
+
+    &>div {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        img {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+        }
+    }
+}
+
+//OYnatma Alanı bitiş
+
+.animate {
+    animation: turn 10s linear infinite;
+}
+
+//Animasyon oluşturma
+
+@keyframes turn {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+//Loading
+.container {
+    width: 175px;
+    height: 175px;
+    background-color: #ABC4AA;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 5px 5px 0 0 #675D50;
+}
+
+.plate {
+    width: fit-content;
+}
+
+.plate .black,
+.plate .white,
+.plate .center,
+.plate .border {
+    border-radius: 100%;
+}
+
+.container,
+.plate .black,
+.plate .white,
+.plate .border {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: auto;
+}
+
+.plate .black {
+    width: 150px;
+    height: 150px;
+    background-color: #675D50;
+    animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+.plate .white {
+    width: 70px;
+    height: 70px;
+    background-color: #F3DEBA;
+}
+
+.plate .center {
+    width: 20px;
+    height: 20px;
+    background-color: #675D50;
+}
+
+.plate .border {
+    width: 111px;
+    height: 111px;
+    border-top: 3px solid #F3DEBA;
+    border-bottom: 3px solid #F3DEBA;
+    border-left: 3px solid #675D50;
+    border-right: 3px solid #675D50;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: fit-content;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 8px;
+    margin-right: 8px;
+    rotate: -45deg;
+}
+
+.player .circ {
+    width: 25px;
+    height: 25px;
+    background-color: #F3DEBA;
+    border-radius: 100%;
+    z-index: 1;
+}
+
+.player .rect {
+    width: 10px;
+    height: 55px;
+    background-color: #F3DEBA;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 5px;
+}
+
+//Loading bitiş
+
+//Toggle
+
+.container2 {
+
+    //  border: 2px red solid;
+    @media (max-width: 768px) {
+        margin-left: 100px;
+    }
+    margin-right: 50px;
+
+    .toggle {
+        background-color: #fff;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        box-shadow: 0 0 50px 20px rgba(0, 0, 0, .1);
+        line-height: 1;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+    }
+
+    .input {
+        display: none;
+    }
+
+    .icon {
+        grid-column: 1 / 1;
+        grid-row: 1 / 1;
+        transition: transform 500ms;
+    }
+
+    .icon--moon {
+        transition-delay: 200ms;
+        color: black;
+    }
+
+    .icon--sun {
+        transform: scale(0);
+        color: black;
+
+    }
+
+    #switch:checked+.icon--moon {
+        transform: rotate(360deg) scale(0);
+    }
+
+    #switch:checked~.icon--sun {
+        transition-delay: 200ms;
+        transform: scale(1) rotate(360deg);
+    }
+
+}
+
+.light {
+    background: white;
+    color: black;
+
+    .songs{
+        background: rgb(230, 222, 222);
+    }
+    .card{
+        background: white !important;
+        color: black;
+    }
+
+    form input{
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgb(124, 122, 122);
+    }
+
+    nav a{
+        color: black;
+        &:hover {
+            background: grey;
+        }
+    }
+}
